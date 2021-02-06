@@ -5,11 +5,11 @@ import { AppService } from './app.service';
 import { QuestModule } from './quest/quest.module';
 import { UserModule } from './user/user.module';
 import { LocationModule } from './location/location.module';
+import { Connection } from 'typeorm';
 
 @Module({
   
-  controllers: [AppController],
-  providers: [AppService],
+  
 
   imports: [QuestModule, UserModule,
   TypeOrmModule.forRoot({
@@ -23,6 +23,10 @@ import { LocationModule } from './location/location.module';
     synchronize: true,
   }),
   LocationModule,
+  controllers: [AppController],
+   providers: [AppService],
 ],
 })
-export class AppModule {}
+export class AppModule {
+constructor(private connection: Connection) {}
+}
