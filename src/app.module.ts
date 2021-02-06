@@ -11,7 +11,7 @@ import { LocationModule } from './location/location.module';
   controllers: [AppController],
   providers: [AppService],
 
-  imports: [QuestModule, UserModule
+  imports: [QuestModule, UserModule,
   TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
